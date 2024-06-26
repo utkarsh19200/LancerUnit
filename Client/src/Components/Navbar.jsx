@@ -8,29 +8,7 @@ const Navbar = (props) => {
   const { state, dispatch } = useContext(UserContext);
 
   //* Login/Logout Functionality
-  const RenderMenu = () => {
-    if (state) {
-      return (
-        <div id="ndb">
-          <button className="nbutton" id="nav-btn">
-            <NavLink to="./Logout" id="nav-btn-a">
-              Logout
-            </NavLink>
-          </button>
-        </div>
-      );
-    } else {
-      return (
-        <div id="ndb">
-          <button className="nbutton" id="nav-btn">
-            <NavLink to="./Login1" id="nav-btn-a">
-              Login
-            </NavLink>
-          </button>
-        </div>
-      );
-    }
-  };
+  
 
   //* Progress bar in navbar on scroll
   const [scrollTop, setScrollTop] = useState(0);
@@ -88,7 +66,6 @@ const Navbar = (props) => {
               </a>
             </li>
           </ul>
-          <RenderMenu />
         </nav>
       </Wrapper>
     </>
