@@ -42,20 +42,4 @@ html {
   background: linear-gradient(transparent, #1cd6ce);
 }
 
-/*--------------------------------------------CSS FOR PROGRASSBAR-------------------------------------------------------------------- */
-.progressbar{
-  background-color: rgba(255, 255, 255, 0);
-  height:5px;
-  position: sticky;
-  top:0;
-  left:0;
-  z-index: 4;
-  width: 100%;
-}
-
-.progressbarIn{
- height:5px;
- background: #00c8aa;
-}
-
 `

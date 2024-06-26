@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom/client';
 import { GlobalStyle } from './Styles/GlobalStyle';
 import "swiper/css/bundle";
 import Routing from './Routing'
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 root.render(
   <>
-    <GlobalStyle />
+    {/* <GlobalStyle /> */}
 
     <Routing />
 

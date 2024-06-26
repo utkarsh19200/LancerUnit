@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { UserContext } from "../Routing";
 import styled from "styled-components";
+import logo from '../assets/freelancelogobg.png';
 /* eslint-disable no-unused-vars */
 
 const Navbar = (props) => {
@@ -27,48 +28,68 @@ const Navbar = (props) => {
   }, []);
 
   //* Navbar sticky on scroll
-  window.addEventListener("scroll", function () {
-    var navbar = document.querySelector("#navbar");
-    navbar.classList.toggle("sticky", window.scrollY > 0);
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = document.querySelector("#navbar");
+      if (navbar) {
+        navbar.classList.toggle("sticky", window.scrollY > 0);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <>
-      {/* <div className="progressbar">
-        <div className="progressbarIn" style={{ width: `${scrollTop}%` }}></div>
-      </div> */}
-      <Wrapper navColor={props.color}>
-        <nav id="navbar">
-          <div className="d-logo">
-            <span id="logo">
-              <img className="Logo" src="../../" alt="Lancer.Unit" loading="lazy" />
-            </span>
+    <Wrapper navColor="#fff" id="navbar">
+      <div
+        className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 transition-all duration-200`}
+      >
+        <div className="flex w-11/12 max-w-maxContent items-center justify-between">
+          {/* Logo */}
+          <Link to="/">
+            <img src={logo} alt="Logo" width={70} height={10} loading="lazy" />
+          </Link>
+          {/* Navigation links */}
+          <nav className="hidden md:flex">
+            <ul className="flex space-x-4">
+              <li>
+                <NavLink to="/Home" id="nav-a">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/FindJobs" id="nav-a">
+                  Find Jobs
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/FindFreelancer" id="nav-a">
+                  Find Freelancers
+                </NavLink>
+              </li>
+              <li>
+                <a href={props.link} id="nav-a" onClick={props.onclick}>
+                  {props.change}
+                </a>
+              </li>
+            </ul>
+          </nav>
+          {/* Login / Signup / Dashboard */}
+          <div className="hidden items-center gap-x-4 md:flex">
+            <Link to="/Login">
+              <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+                Log in
+              </button>
+            </Link>
+            <Link to="/Signup">
+              <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+                Sign up
+              </button>
+            </Link>
           </div>
-          <ul>
-            <li>
-              <NavLink to="/Home" id="nav-a">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/FindJobs" id="nav-a">
-                Find Jobs
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/FindFreelancer" id="nav-a">
-                Find Freelancers
-              </NavLink>
-            </li>
-            <li>
-              <a href={props.link} id="nav-a" onClick={props.onclick}>
-                {props.change}
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </Wrapper>
-    </>
+        </div>
+      </div>
+    </Wrapper>
   );
 };
 
@@ -91,16 +112,6 @@ const Wrapper = styled.section`
     margin-left: 50px;
     transition: 0.6s;
   }
-  /* #logo {
-    font-family: "PT Serif", "Caveat"; */
-  /* position:relative; */
-  /* display: inline-block;
-    font-size: 1.5rem;
-    margin-left: 50px;
-    transition: 0.6s;
-    color: ${(props) => props.navColor};
-  }
-  */
   #logo:hover {
     transform: scale(1.1);
   }
