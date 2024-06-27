@@ -7,7 +7,7 @@ import Navbar from './Components/Navbar';
 import About from './Components/About';
 import GoToTop from './Components/GoToTop';
 import Footer from './Components/Footer';
-import './App.css'
+import './App.css';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";

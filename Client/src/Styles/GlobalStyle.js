@@ -14,7 +14,9 @@ button{
 cursor: pointer;
 }
 body {
-  background-color: var(--shady-white-color);
+  ${'' /* background-color: var(--shady-white-color); */}
+  background-color: var(--login-color);
+
 }
 html {
   scroll-behavior: smooth;
@@ -29,17 +31,18 @@ html {
   --clr-neutral-100: hsl(0, 0%, 100%);
   --clr-accent-400: hsl(142, 90%, 61%);
   --padding: 1.5rem;
+  --login-color: #000814;
 }
 
 ::-webkit-scrollbar {
   width: 11px;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(transparent, #09a991);
+  background: #ffcccc;
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(transparent, #1cd6ce);
+  ${'' /* background: linear-gradient(transparent, #999966); */}
 }
 
 `
